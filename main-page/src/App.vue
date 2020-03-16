@@ -1,17 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+const navigationItems = [
+  {
+    id: 'about',
+    checked: false,
+    marker: null,
+    title: 'О школе'
+  },
+  {
+    id: 'courses',
+    checked: false,
+    marker: '1 бесплатный',
+    title: 'Курсы'
+  },
+  {
+    id: 'teachers',
+    checked: false,
+    marker: null,
+    title: 'Преподаватели'
+  },
+  {
+    id: 'forYou',
+    checked: false,
+    marker: null,
+    title: 'Для вас'
+  }
+]
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    
+  },
+  data: {
+    navigationItems
   }
 }
 </script>
