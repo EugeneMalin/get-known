@@ -1,9 +1,13 @@
 <template>
-  <div id="app">
+  <div class="app">
+    <Cover />
+    <div class="cals">aaaaaaa</div>
   </div>
 </template>
 
 <script>
+
+import Cover from './components/Cover'
 
 const navigationItems = [
   {
@@ -35,21 +39,27 @@ const navigationItems = [
 export default {
   name: 'App',
   components: {
-    
+    Cover
   },
-  data: {
-    navigationItems
+  data() {
+    return {
+      navigationItems
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+    height: 4000px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+main {
+    min-height: 100%;
 }
 </style>
