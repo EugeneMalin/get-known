@@ -1,7 +1,45 @@
 <template>
   <div class="app">
     <Cover class="app-cover"/>
-    <Invitation class="app-invitation"/>
+    <Invitation class="app-invitation" title="Хотите получить бесплатный живой урок?" :isMain="false"/>
+    <div class="app-advantage">
+
+    </div>
+    <Invitation class="app-invitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
+    <div class="app-footer">
+      <div class="app-column">
+        <img class="app-logo" src="@/assets/logo.svg" alt="">
+        <div class="app-item">© Copyright 2020 GetKnow School</div>
+        <div class="app-item">Все права защищены.</div>
+      </div>
+      <div class="app-column">
+        <div class="app-item app-item__header">О школе</div>
+        <div class="app-item">Бесплатное занятие</div>
+        <div class="app-item">Преподаватели</div>
+        <div class="app-item">Курсы</div>
+        <div class="app-item">Программы</div>
+        <div class="app-item">Подарки</div>
+      </div>
+      <div class="app-column">
+        <div class="app-item app-item__header">Курсы</div>
+        <div class="app-item">Китайский язык</div>
+        <div class="app-item">Английский язык</div>
+        <div class="app-item">Программирование</div>
+        <div class="app-item">Скорочтение</div>
+      </div>
+      <div class="app-column">
+        <div class="app-item app-item__header">Узнать больше</div>
+        <div class="app-row">
+          <img class="app-icon" src="@/assets/icons/vk.svg" alt="">
+          <img class="app-icon" src="@/assets/icons/telegram.svg" alt="">
+          <img class="app-icon" src="@/assets/icons/instagram.svg" alt="">
+          <img class="app-icon" src="@/assets/icons/youtube.svg" alt="">
+          <img class="app-icon" src="@/assets/icons/facebook.svg" alt="">
+        </div>
+        <div class="app-item">Скачать проверочный тест</div>
+        <div class="app-item">Скачать ещё что-нибудь</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +79,28 @@ const navigationItems = [
     title: 'Для вас'
   }
 ]
+const footerLinks = [
+  { 
+    link: null,
+    type: 'vk'
+  },
+  { 
+    link: null,
+    type: 'telegram'
+  },
+  { 
+    link: null,
+    type: 'instagram'
+  },
+  { 
+    link: null,
+    type: 'youtube'
+  },
+  { 
+    link: null,
+    type: 'facebook'
+  }
+]
 
 export default {
   name: 'App',
@@ -50,6 +110,7 @@ export default {
   },
   data() {
     return {
+      footerLinks,
       navigationItems
     }
   }
@@ -57,9 +118,48 @@ export default {
 </script>
 
 <style>
-.app {
-    height: 4000px;
+.app .app-footer {
+  margin: 50px 0;
+  width: 75%;
 }
+.app .app-footer .app-column .app-logo {
+  margin-bottom: 20px;
+}
+.app .app-footer .app-column .app-item:not(:last-child) {
+  margin-bottom: 16px;
+}
+.app .app-footer .app-column .app-row {
+  margin-top: -4px;
+  margin-bottom: 16px;
+}
+.app .app-footer .app-column .app-row .app-icon {
+  margin-right: 12px;
+}
+.app .app-footer .app-column .app-item.app-item__header {
+  margin-bottom: 30px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.app-item {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 20px;
+    color: #333333;
+}
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+}
+.app-row {
+    display: flex;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -69,4 +169,11 @@ html, body {
 main {
     min-height: 100%;
 }
+
+.app-item__header {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+}
+
 </style>

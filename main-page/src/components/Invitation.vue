@@ -9,7 +9,7 @@
       </div>
     <a-input-group compact class="invitation-inputgroup">
         <a-input style="width: 20%" placeholder="email" defaultValue="mail@mail.ru" class="invitation-input"/>
-        <a-button style="width: 154px" type="primary" class="invitation-button">Получить!</a-button>
+        <a-button style="width: 154px" type="primary" class="invitation-button">Получить</a-button>
     </a-input-group>
     <div class="invitation-suggestions">
         Мы заботимся о персональных данных. <a-button type="link" class="invitation-suglink">Политика конфиденциальности</a-button>
@@ -19,11 +19,9 @@
 
 <script>
 export default {
-    data() {
-        return {
-            title: 'Хотите получить бесплатный живой урок?',
-            isMain: false
-        }
+    props: {
+        title: String,
+        isMain: Boolean
     }
 }
 </script>
