@@ -5,13 +5,11 @@
 
 <template>
   <div class="cover">
-    <div class="cover-image">
-        <div class="cover-logotext">GetKnow</div>
-        <div class="cover-description">
-            Онлайн-школа с живым обучением по видеосвязи, проверкой Д/З и экзаменами
-        </div>
+    <img class="cover-image" src="@/assets/background.svg"/>
+    <div class="cover-logotext">GetKnow</div>
+    <div class="cover-description">
+        Онлайн-школа с живым обучением по видеосвязи, проверкой Д/З и экзаменами
     </div>
-    
   </div>
 </template>
 
@@ -24,7 +22,6 @@ export default {
 <style>
 .cover {
     width: 100%;
-    height: 100%;
     position: relative;
 }
 .cover .cover-logotext {
@@ -33,9 +30,7 @@ export default {
 .cover-image {
     width: 100vw;
     height: 100vh;
-    background-image: url("../assets/background.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    object-fit: cover;
 }
 .cover-logotext {
     font-family: Roboto;
