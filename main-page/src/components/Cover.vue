@@ -5,7 +5,7 @@
 
 <template>
   <div class="cover">
-    <img class="cover-image" src="@/assets/background.svg"/>
+    <img class="cover-image" src="@/assets/cover.svg"/>
     <div class="cover-logotext">GetKnow</div>
     <div class="cover-description">
         Онлайн-школа с живым обучением по видеосвязи, проверкой Д/З и экзаменами
