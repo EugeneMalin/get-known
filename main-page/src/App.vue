@@ -1,13 +1,19 @@
 <template>
   <div class="app">
-    <Cover />
-    <div class="cals">aaaaaaa</div>
+    <Cover class="app-cover"/>
+    <Invitation class="app-invitation"/>
   </div>
 </template>
 
 <script>
 
 import Cover from './components/Cover'
+import Invitation from './components/Invitation'
+import Antd from 'ant-design-vue';
+import Vue from 'vue';
+import 'ant-design-vue/dist/antd.css'
+
+Vue.use(Antd);
 
 const navigationItems = [
   {
@@ -39,7 +45,8 @@ const navigationItems = [
 export default {
   name: 'App',
   components: {
-    Cover
+    Cover,
+    Invitation
   },
   data() {
     return {
