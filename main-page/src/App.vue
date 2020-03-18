@@ -3,7 +3,16 @@
     <Cover class="app-cover"/>
     <Invitation class="app-invitation" title="Хотите получить бесплатный живой урок?" :isMain="false"/>
     <div class="app-advantage">
-
+      <Title header="Удобная платформа для образования" description="Для простоты изучения мы разработали для Вас личный кабинет ученика!" />
+    </div>
+    <div class="app-courses">
+      <Title header="Большой выбор курсов с живыми преподавателями"/>
+    </div>
+    <div class="app-teachers">
+      <Title header="Познакомьтесь с теми, кто будет ваc учить"/>
+    </div>
+    <div class="app-classes">
+      <Title header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
     </div>
     <Invitation class="app-getinvitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
     <div class="app-footer">
@@ -46,6 +55,7 @@
 <script>
 
 import Cover from './components/Cover'
+import Title from './components/Title'
 import Invitation from './components/Invitation'
 import Antd from 'ant-design-vue';
 import Vue from 'vue';
@@ -106,7 +116,8 @@ export default {
   name: 'App',
   components: {
     Cover,
-    Invitation
+    Invitation,
+    Title
   },
   data() {
     return {
