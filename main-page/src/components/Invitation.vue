@@ -7,13 +7,15 @@
       <div class="invitation-title">
           {{ title }}
       </div>
-    <a-input-group compact class="invitation-inputgroup">
-        <a-input style="width: 20%" placeholder="email" defaultValue="mail@mail.ru" class="invitation-input"/>
-        <a-button style="width: 154px" type="primary" class="invitation-button">Получить</a-button>
-    </a-input-group>
-    <div class="invitation-suggestions">
-        Мы заботимся о персональных данных. <a-button type="link" class="invitation-suglink">Политика конфиденциальности</a-button>
-    </div>
+      <div class="invitation-field">
+          <a-input-group compact class="invitation-inputgroup">
+              <a-input style="width: calc(100% - 154px)" placeholder="email" defaultValue="mail@mail.ru" class="invitation-input"/>
+              <a-button style="width: 154px" type="primary" class="invitation-button">Получить</a-button>
+          </a-input-group>
+      </div>
+      <div class="invitation-suggestions">
+          Мы заботимся о персональных данных. <span class="invitation-suglink">Политика конфиденциальности</span>
+      </div>
   </div>
 </template>
 
@@ -27,9 +29,20 @@ export default {
 </script>
 
 <style>
+
+    .invitation .invitation-title {
+        width: 45%;
+        margin-bottom: 46px;
+    }
+    .invitation .invitation-field {
+        margin-bottom: 15px;
+    }
+
     .invitation {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
     }
     .invitation-title {
@@ -58,8 +71,25 @@ export default {
         text-align: center;
         color: #A0A0A9;
     }
-
-    .invitation__main {
+    .invitation-suglink {
+        text-decoration: underline;
+    }
+    .invitation-field {
+        width: 380px;
+    }
+    .invitation-inputgroup {
+        display: flex;
+    }
+    .invitation.invitation__main {
         background-color: #324BC0;
+    }
+    .invitation.invitation__main .invitation-title {
+        color: #FFFFFF;
+        font-size: 58px;
+        line-height: 68px;
+        margin-bottom: 60px;
+    }
+    .invitation.invitation.invitation__main .invitation .invitation-field {
+        margin-bottom: 18px;
     }
 </style>

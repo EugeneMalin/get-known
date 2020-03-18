@@ -5,7 +5,7 @@
     <div class="app-advantage">
 
     </div>
-    <Invitation class="app-invitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
+    <Invitation class="app-getinvitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
     <div class="app-footer">
       <div class="app-column">
         <img class="app-logo" src="@/assets/logo.svg" alt="">
@@ -118,6 +118,14 @@ export default {
 </script>
 
 <style>
+.app .app-invitation {
+  height: 310px;
+}
+
+.app .app-getinvitation {
+  height: 486px;
+}
+
 .app .app-footer {
   margin: 50px 0;
   width: 75%;
