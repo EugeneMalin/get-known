@@ -2,24 +2,28 @@
   <div class="app">
     <Cover class="app-cover"/>
     <Invitation class="app-invitation" title="Хотите получить бесплатный живой урок?" :isMain="false"/>
-    <div class="app-advantage">
-      <Title header="Удобная платформа для образования" description="Для простоты изучения мы разработали для Вас личный кабинет ученика!" />
-    </div>
-    <div class="app-courses">
-      <Title header="Большой выбор курсов с живыми преподавателями"/>
-    </div>
-    <div class="app-teachers">
-      <Title header="Познакомьтесь с теми, кто будет ваc учить"/>
-    </div>
-    <div class="app-classes">
-      <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
-      <!--<img class="app-img app-img__macbook" src="@/assets/macbook.png" alt="">-->
-      <img class="app-img app-img__plane" src="@/assets/plane.svg" alt="">
-      <div class="app-block app-block__macbook">
-        <img class="app-img app-img__frame" src="@/assets/frame.png" alt="">
+    <div class="app-fade">
+      <div class="app-advantage">
+        <Title header="Удобная платформа для образования" description="Для простоты изучения мы разработали для Вас личный кабинет ученика!" />
+      </div>
+      <div class="app-courses">
+        <Title header="Большой выбор курсов с живыми преподавателями"/>
       </div>
     </div>
-    <Map class="app-feedback" title="Отзывы наших учеников" :points="feedbackPoints"/>    
+    <div class="app-fade">
+      <div class="app-teachers">
+        <Title class="app-title" header="Познакомьтесь с теми, кто будет ваc учить"/>
+      </div>
+      <div class="app-classes">
+        <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
+        <!--<img class="app-img app-img__macbook" src="@/assets/macbook.png" alt="">-->
+        <img class="app-img app-img__plane" src="@/assets/plane.svg" alt="">
+        <div class="app-block app-block__macbook">
+          <img class="app-img app-img__frame" src="@/assets/frame.png" alt="">
+        </div>
+      </div>
+      <Map class="app-feedback" title="Отзывы наших учеников" :points="feedbackPoints"/>
+    </div>    
     <Invitation class="app-getinvitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
     <div class="app-footer">
       <div class="app-column">
@@ -169,8 +173,23 @@ export default {
   .app-invitation {
     height: 310px;
   }
+  .app-advantage {
+    margin-top: 110px;
+  }
   .app-getinvitation {
     height: 486px;
+  }
+  .app-teachers {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin-top: 120px;
+    .app-title {
+      width: 75%;
+      .title-header {
+        margin-bottom: 70px;
+      }
+    }
   }
   .app-classes {
     width: 75%;
@@ -249,8 +268,12 @@ export default {
     align-items: center;
     position: relative;
   }
-  &-backgroud {
-    background: linear-gradient(121.99deg, #FFA9D8 0%, #DFBCFF 100%);
+  &-fade {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #F6F6F6 0%, #FFFFFF 100%);;
   }
   &-footer {
     display: flex;
