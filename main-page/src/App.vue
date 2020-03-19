@@ -13,7 +13,9 @@
     </div>
     <div class="app-classes">
       <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
-      <div class="app-background">
+      <!--<img class="app-img app-img__macbook" src="@/assets/macbook.png" alt="">-->
+      <img class="app-img app-img__plane" src="@/assets/plane.svg" alt="">
+      <div class="app-block app-block__macbook">
         <img class="app-img app-img__frame" src="@/assets/frame.png" alt="">
       </div>
     </div>
@@ -174,13 +176,31 @@ export default {
     width: 75%;
     .app-title {
       width: 60%;
+      .title-header {
+        margin-bottom: 60px;
+      }
+      .title-description {
+        margin-bottom: 120px;
+      }
     }
     .app-background {
       width: 100%;
       height: 100%;
     }
+    .app-block__macbook {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(121.99deg, #FFA9D8 0%, #DFBCFF 100%);
+    }
     .app-img__plane {
-      width: 100%;
+      width: 28%;
+      right: 2%;
+      position: absolute;
+    }
+    .app-img__frame {
+      width: 70%;
+      margin: 20px 0;
     }
   }
   .app-feedback {
@@ -230,10 +250,7 @@ export default {
     position: relative;
   }
   &-backgroud {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: linear-gradient(121.99deg, #FFA9D8 0%, #DFBCFF 100%);
+    background: linear-gradient(121.99deg, #FFA9D8 0%, #DFBCFF 100%);
   }
   &-footer {
     display: flex;
