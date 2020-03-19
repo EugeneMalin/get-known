@@ -12,7 +12,10 @@
       <Title header="Познакомьтесь с теми, кто будет ваc учить"/>
     </div>
     <div class="app-classes">
-      <Title header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
+      <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
+      <div class="app-background">
+        <img class="app-img app-img__frame" src="@/assets/frame.png" alt="">
+      </div>
     </div>
     <Map class="app-feedback" title="Отзывы наших учеников" :points="feedbackPoints"/>    
     <Invitation class="app-getinvitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
@@ -167,11 +170,23 @@ export default {
   .app-getinvitation {
     height: 486px;
   }
+  .app-classes {
+    width: 75%;
+    .app-title {
+      width: 60%;
+    }
+    .app-background {
+      width: 100%;
+      height: 100%;
+    }
+    .app-img__plane {
+      width: 100%;
+    }
+  }
   .app-feedback {
     width: 75%;
     margin: 160px 0;
   }
-
   .app-footer {
     margin: 50px 0;
     width: 75%;
@@ -206,6 +221,19 @@ export default {
     font-size: 17px;
     line-height: 20px;
     color: #333333;
+  }
+  &-classes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &-backgroud {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: linear-gradient(121.99deg, #FFA9D8 0%, #DFBCFF 100%);
   }
   &-footer {
     display: flex;
