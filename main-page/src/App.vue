@@ -14,6 +14,7 @@
     <div class="app-classes">
       <Title header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
     </div>
+    <Map class="app-feedback" title="Отзывы наших учеников" :points="feedbackPoints"/>    
     <Invitation class="app-getinvitation" title="Попробуете бесплатное занятие сегодня?" :isMain="true"/>
     <div class="app-footer">
       <div class="app-column">
@@ -57,6 +58,7 @@
 import Cover from './components/Cover'
 import Title from './components/Title'
 import Invitation from './components/Invitation'
+import Map from './components/Map'
 import Antd from 'ant-design-vue';
 import Vue from 'vue';
 import 'ant-design-vue/dist/antd.css'
@@ -112,71 +114,93 @@ const footerLinks = [
   }
 ]
 
+const feedbackPoints = [
+  {
+    photoUrl: null,
+    posX: 11,
+    posY: 43
+  }
+]
+
 export default {
   name: 'App',
   components: {
     Cover,
     Invitation,
-    Title
+    Title,
+    Map
   },
   data() {
     return {
       footerLinks,
-      navigationItems
+      navigationItems,
+      feedbackPoints
     }
   }
 }
 </script>
 
-<style>
-.app .app-invitation {
-  height: 310px;
-}
-
-.app .app-getinvitation {
-  height: 486px;
-}
-
-.app .app-footer {
-  margin: 50px 0;
-  width: 75%;
-}
-.app .app-footer .app-column .app-logo {
-  margin-bottom: 20px;
-}
-.app .app-footer .app-column .app-item:not(:last-child) {
-  margin-bottom: 16px;
-}
-.app .app-footer .app-column .app-row {
-  margin-top: -4px;
-  margin-bottom: 16px;
-}
-.app .app-footer .app-column .app-row .app-icon {
-  margin-right: 12px;
-}
-.app .app-footer .app-column .app-item.app-item__header {
-  margin-bottom: 30px;
-}
-
+<style lang="less">
 .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .app-invitation {
+    height: 310px;
+  }
+  .app-getinvitation {
+    height: 486px;
+  }
+  .app-feedback {
+    width: 75%;
+    margin: 160px 0;
+  }
+
+  .app-footer {
+    margin: 50px 0;
+    width: 75%;
+    .app-column {
+      .app-logo {
+        margin-bottom: 20px;
+      }
+      .app-item:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      .app-item.app-item__header {
+        margin-bottom: 30px;
+      }
+      .app-row {
+        margin-top: -4px;
+        margin-bottom: 16px;
+        .app-icon {
+          margin-right: 12px;
+        }
+      }
+    }
+  }
 }
-.app-item {
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-item {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
     line-height: 20px;
     color: #333333;
-}
-.app-footer {
+  }
+  &-footer {
     display: flex;
     justify-content: space-between;
-}
-.app-row {
+  }
+  &-row {
     display: flex;
+  }
+}
+
+.app-item__header {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 html, body {
@@ -188,11 +212,4 @@ html, body {
 main {
     min-height: 100%;
 }
-
-.app-item__header {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
-}
-
 </style>
