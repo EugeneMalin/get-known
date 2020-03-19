@@ -116,9 +116,28 @@ const footerLinks = [
 
 const feedbackPoints = [
   {
+    index: 0,
     photoUrl: null,
-    posX: 11,
+    posX: 60,
+    posY: 10
+  },
+  {
+    index: 1,
+    photoUrl: null,
+    posX: 50,
     posY: 43
+  },
+  {
+    index: 2,
+    photoUrl: null,
+    posX: 130,
+    posY: 40
+  },
+  {
+    index: 3,
+    photoUrl: null,
+    posX: 150,
+    posY: 10
   }
 ]
 
