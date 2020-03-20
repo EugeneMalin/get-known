@@ -4,15 +4,27 @@
     <Invitation class="app-invitation" title="Хотите получить бесплатный живой урок?" :isMain="false"/>
     <div class="app-fade">
       <div class="app-advantage">
-        <Title header="Удобная платформа для образования" description="Для простоты изучения мы разработали для Вас личный кабинет ученика!" />
+        <Title class="app-title" header="Удобная платформа для образования" description="Для простоты изучения мы разработали для Вас личный кабинет ученика!" />
+        <div class="app-grid">
+          <div class="app-griditem app-griditem__small-square" slot="renderItem" v-for="item in advantages" :key="item.key">
+            <img :src=item.icon>
+            <div class="app-griddescription">{{item.description}}</div>
+          </div>
+        </div>
       </div>
       <div class="app-courses">
-        <Title header="Большой выбор курсов с живыми преподавателями"/>
+        <Title class="app-title" header="Большой выбор курсов с живыми преподавателями"/>
+        
       </div>
     </div>
     <div class="app-fade">
       <div class="app-teachers">
         <Title class="app-title" header="Познакомьтесь с теми, кто будет ваc учить"/>
+        <a-list class="slider" :grid="{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 }" :dataSource="courses">
+          <a-list-item class="slider-item" slot="renderItem" slot-scope="item">
+            <a-card class="slider-content">{{item.content}}</a-card>
+          </a-list-item>
+        </a-list>
       </div>
       <div class="app-classes">
         <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
@@ -68,6 +80,11 @@ import Cover from './components/Cover'
 import Title from './components/Title'
 import Invitation from './components/Invitation'
 import Map from './components/Map'
+import computer from '@/assets/computer.svg'
+import rising from '@/assets/rising.svg'
+import student from '@/assets/student.svg'
+import time from '@/assets/time.svg'
+import tea from '@/assets/tea.svg'
 import Antd from 'ant-design-vue';
 import Vue from 'vue';
 import 'ant-design-vue/dist/antd.css'
@@ -150,6 +167,37 @@ const feedbackPoints = [
   }
 ]
 
+const courses = [
+
+]
+const advantages = [
+  {
+    key: 0,
+    icon: student,
+    description: 'Домашнее задание после каждого урока'
+  },
+  {
+    key: 1,
+    icon: time,
+    description: 'Вы сами выбираете вермя занятий'
+  },
+  {
+    key: 2,
+    icon: tea,
+    description: 'Бесплатный перенос и отмена занятий'
+  },
+  {
+    key: 3,
+    icon: rising,
+    description: 'Пройденные уроки хранятся для повтора'
+  },
+  {
+    key: 4,
+    icon: computer,
+    description: 'Весь материал в личном кабинете'
+  }
+]
+
 export default {
   name: 'App',
   components: {
@@ -162,7 +210,9 @@ export default {
     return {
       footerLinks,
       navigationItems,
-      feedbackPoints
+      feedbackPoints,
+      advantages,
+      courses
     }
   }
 }
@@ -175,13 +225,46 @@ export default {
   }
   .app-advantage {
     margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 120px;
+    .app-title {
+      display: flex;
+      align-items: center;
+      width: 75%;
+      .title-header {
+        width: 65%;
+        margin-bottom: 60px;
+      }
+      .title-description {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .app-courses {
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin-top: 120px;
+    .app-title {
+      width: 80%;
+      .title-header {
+        margin-bottom: 70px;
+      }
+    }
   }
   .app-getinvitation {
     height: 486px;
   }
   .app-teachers {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 75%;
     margin-top: 120px;
     .app-title {
@@ -268,6 +351,30 @@ export default {
     align-items: center;
     position: relative;
   }
+  &-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+  &-griddescription {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    margin-top: 25px;
+    color: #000000;
+  }
+  &-griditem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+  }
   &-fade {
     width: 100%;
     display: flex;
@@ -289,14 +396,23 @@ export default {
   font-size: 18px;
   line-height: 21px;
 }
-
+.app-griditem__small-square {
+  border: 1px solid #E2E2E2;
+  box-sizing: border-box;
+  border-radius: 26px;
+  width: 15vw;
+  height: 15vw;
+  min-width: 170px;
+  min-height: 170px;
+  margin: 16px;
+}
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 main {
-    min-height: 100%;
+  min-height: 100%;
 }
 </style>
