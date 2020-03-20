@@ -20,11 +20,20 @@
     <div class="app-fade">
       <div class="app-teachers">
         <Title class="app-title" header="Познакомьтесь с теми, кто будет ваc учить"/>
-        <a-list class="slider" :grid="{ gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 3 }" :dataSource="courses">
-          <a-list-item class="slider-item" slot="renderItem" slot-scope="item">
-            <a-card class="slider-content">{{item.content}}</a-card>
-          </a-list-item>
-        </a-list>
+        <div class="app-grid">
+          <div class="app-griditem app-griditem__teacher" slot="renderItem" v-for="item in teachers" :key="item.key">
+            <div class="app-list">
+              <div class="app-listitem" v-for="row in item.rows" :key="row">{{row}}</div>
+            </div>
+            <div class="app-person">
+              <img class="app-personphoto" :src=item.photo>
+              <div class="app-name">
+                {{item.name}}
+              </div>
+              <div class="app-link">Слушать<img class="app-icon" src="@/assets/headphone.png"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="app-classes">
         <Title class="app-title" header="Вот так проходят занятия в GetKnow" description="There are no limits to how — and with whom — you can share. Present to a client or at a conference. Keep presentations private for your team, or publish them for the whole world to see." />
@@ -80,11 +89,17 @@ import Cover from './components/Cover'
 import Title from './components/Title'
 import Invitation from './components/Invitation'
 import Map from './components/Map'
+
+import teacher from '@/assets/teacher.png'
+import teacher1 from '@/assets/teacher1.png'
+import teacher2 from '@/assets/teacher2.png'
+
 import computer from '@/assets/computer.svg'
 import rising from '@/assets/rising.svg'
 import student from '@/assets/student.svg'
 import time from '@/assets/time.svg'
 import tea from '@/assets/tea.svg'
+
 import Antd from 'ant-design-vue';
 import Vue from 'vue';
 import 'ant-design-vue/dist/antd.css'
@@ -139,7 +154,6 @@ const footerLinks = [
     type: 'facebook'
   }
 ]
-
 const feedbackPoints = [
   {
     index: 0,
@@ -167,8 +181,37 @@ const feedbackPoints = [
   }
 ]
 
-const courses = [
-
+const teachers = [
+  {
+    key: 0,
+    photo: teacher,
+    rows: [
+      'Китайский язык с нуля и для начинающих',
+      'Детский курс китайского языка от 5 до 12 лет',
+      'Курс китайского языка для продвинутых и продолжающих'
+    ],
+    name: 'Ольга Ненахова'
+  },
+  {
+    key: 1,
+    photo: teacher1,
+    rows: [
+      'Китайский язык с нуля и для начинающих',
+      'Детский курс китайского языка от 5 до 12 лет',
+      'Курс китайского языка для продвинутых и продолжающих'
+    ],
+    name: 'Света Иванова'
+  },
+  {
+    key: 2,
+    photo: teacher2,
+    rows: [
+      'Китайский язык с нуля и для начинающих',
+      'Детский курс китайского языка от 5 до 12 лет',
+      'Курс китайского языка для продвинутых и продолжающих'
+    ],
+    name: 'Наталья Афонина'
+  }
 ]
 const advantages = [
   {
@@ -212,7 +255,7 @@ export default {
       navigationItems,
       feedbackPoints,
       advantages,
-      courses
+      teachers
     }
   }
 }
@@ -265,10 +308,11 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75%;
+    width: 100%;
     margin-top: 120px;
+    margin-bottom: 200px;
     .app-title {
-      width: 75%;
+      width: 56.25%;
       .title-header {
         margin-bottom: 70px;
       }
@@ -389,6 +433,49 @@ export default {
   &-row {
     display: flex;
   }
+  &-listitem {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 170%;
+    color: #545464;
+  }
+  &-personphoto {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 28px;
+  }
+  &-person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-link {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #5168EF;
+  }
+  &-icon {
+     margin: 6px;
+  }
+  &-name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 6px;
+    color: #000000;
+  }
 }
 
 .app-item__header {
@@ -405,6 +492,18 @@ export default {
   min-width: 170px;
   min-height: 170px;
   margin: 16px;
+}
+.app-griditem__teacher {
+  border: 1px solid #DDDFE5;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 24vw;
+  height: 36vw;
+  min-width: 180px;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 html, body {
   height: 100%;
